@@ -17,6 +17,7 @@ package:
         - '!storage/**'
         - '!tests/**'
         - '!rr'
+        - '!.idea'
 
 functions:
     # This function runs the Laravel website/API
@@ -29,6 +30,7 @@ functions:
         timeout: 28 # in seconds (API Gateway has a timeout of 29 seconds)
         environment:
           BREF_LOOP_MAX: 250
+          OCTANE_PERSIST_DATABASE_SESSIONS: 1
 #        layers:
 #            - ${bref:layer.php-81-fpm}
         events:
@@ -38,7 +40,7 @@ functions:
         handler: artisan
         timeout: 120 # in seconds
         layers:
-            - ${bref:layer.php-80} # PHP
+            - ${bref:layer.php-81} # PHP
             - ${bref:layer.console} # The "console" layer
 
 plugins:
