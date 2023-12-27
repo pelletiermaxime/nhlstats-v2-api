@@ -1,0 +1,40 @@
+# fly.toml app configuration file generated for nhlstats-v2-api on 2023-12-20T22:00:52-05:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "nhlstats-v2-api"
+primary_region = "yul"
+console_command = "php /var/www/html/artisan tinker"
+
+[build]
+  [build.args]
+    NODE_VERSION = "18"
+    PHP_VERSION = "8.1"
+
+[env]
+  APP_ENV = "production"
+  APP_DEBUG = "true"
+  LOG_CHANNEL = "stderr"
+  LOG_LEVEL = "info"
+  LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
+  SESSION_DRIVER = "cookie"
+  SESSION_SECURE_COOKIE = "true"
+#  MYSQL_ATTR_SSL_CA="/etc/ssl/certs/ca-certificates.crt"
+  DB_DATABASE = "nhlstats"
+#  DB_HOST = "gcp.connect.psdb.cloud"
+  DB_HOST = "nhlstats-v2-mysql.internal"
+  DB_USERNAME = "nhlstats"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256

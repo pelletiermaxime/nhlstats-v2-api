@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('name');
             $table->smallInteger('year');
-            $table->foreignId('division_id')->nullable();
+            $table->integer('division_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->index(['short_name']);
