@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Standings extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 }
