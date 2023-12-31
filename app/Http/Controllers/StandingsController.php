@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Standings;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 
 class StandingsController extends Controller
 {
-    public function index(): Collection
+    public function index(Standings $standings): Collection
     {
-        return Standings::all();
+        return $standings->byOverall();
     }
 }
