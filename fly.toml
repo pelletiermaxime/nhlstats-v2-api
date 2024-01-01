@@ -33,6 +33,10 @@ console_command = "php /var/www/html/artisan tinker"
   min_machines_running = 1
   processes = ["app"]
 
+[processes]
+  app = ""
+  cron = "cron -f"
+
 [[vm]]
   cpu_kind = "shared"
   cpus = 1
