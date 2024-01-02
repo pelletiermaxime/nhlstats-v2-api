@@ -30,11 +30,14 @@ class FetchStandings extends Command
     {
         $teams = $this->getTeamsArray();
         $this->saveStandings($teams);
+        dump($teams[0]);
+        echo "Standings saved.\n";
     }
 
     private function getTeamsArray()
     {
-        $url = 'https://api-web.nhle.com/v1/standings/2023-12-27';
+        $today = date('Y-m-d');
+        $url = 'https://api-web.nhle.com/v1/standings/' . $today;
         $response = Http::get($url);
 
         $standings = $response->json('standings');
