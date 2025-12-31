@@ -20,7 +20,7 @@ class GetStandingsPrompt extends Prompt
      */
     public function handle(Request $request): Response
     {
-        return Response::text('What is the standings of a nhl team, like the Colorado Avalanche?');
+        return Response::text('What are the standings of an NHL team, like the Colorado Avalanche?');
     }
 
     /**

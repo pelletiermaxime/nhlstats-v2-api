@@ -28,7 +28,7 @@ class NhlStandingsTool extends Tool
     {
         return [
             'year' => $schema->string()
-                ->description('The year to fetch the standings for (e.g., 2023, 2024, etc.')
+                ->description('The year to fetch the standings for (e.g., 2023, 2024, etc.)')
                 ->required()
         ];
     }
