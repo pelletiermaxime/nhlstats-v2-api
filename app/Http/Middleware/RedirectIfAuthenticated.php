@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Middleware;
 
 use App\Providers\RouteServiceProvider;
@@ -20,9 +22,11 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+            if (!Auth::guard($guard)->check()) {
+                continue;
             }
+
+            return redirect(RouteServiceProvider::HOME);
         }
 
         return $next($request);

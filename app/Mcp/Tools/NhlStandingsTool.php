@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Mcp\Tools;
 
 use App\Models\Standings;
@@ -15,9 +17,8 @@ class NhlStandingsTool extends Tool
     protected string $title = 'Nhl Standings Tool';
     protected string $description = 'Get the NHL standings for a given year.';
 
-    public function __construct(
-        Standings $standings
-    ) {
+    public function __construct(Standings $standings)
+    {
         $this->standings = $standings;
     }
 
@@ -27,9 +28,10 @@ class NhlStandingsTool extends Tool
     public function schema(JsonSchema $schema): array
     {
         return [
-            'year' => $schema->string()
+            'year' => $schema
+                ->string()
                 ->description('The year to fetch the standings for (e.g., 2023, 2024, etc.)')
-                ->required()
+                ->required(),
         ];
     }
 

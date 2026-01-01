@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
+use App\Models\Division;
+use App\Models\Team;
 use DB;
 use GuzzleHttp\Client;
 use Illuminate\Database\Seeder;
-use App\Models\Division;
-use App\Models\Standings;
-use App\Models\Team;
 
 class DivisionsTableSeeder extends Seeder
 {
@@ -15,14 +16,14 @@ class DivisionsTableSeeder extends Seeder
     {
         $this->client = new Client();
 
-        $standingsURL = "https://statsapi.web.nhl.com/api/v1/standings";
-        $standingsURL .= "?expand=standings.team,standings.division,standings.conference&season=%s";
+        $standingsURL = 'https://statsapi.web.nhl.com/api/v1/standings';
+        $standingsURL .= '?expand=standings.team,standings.division,standings.conference&season=%s';
 
         // $years = range(2010, 2016);
         $years = [config('nhlstats.currentYear')];
         foreach ($years as $year) {
             $divisions = [];
-            $yearAndNext = $year . $year + 1;
+            $yearAndNext = $year . ($year + 1);
             $standingsYearURL = sprintf($standingsURL, $yearAndNext);
             $conferences = ['Eastern' => 'EAST', 'Western' => 'WEST'];
 
@@ -39,9 +40,9 @@ class DivisionsTableSeeder extends Seeder
         }
     }
 
-    private function insert($divisions, $year)
+    private function insert(array $divisions, $year)
     {
-//        Standings::where('year', $year)->delete();
+        //        Standings::where('year', $year)->delete();
         Team::where('year', $year)->delete();
         Division::where('year', $year)->delete();
 
