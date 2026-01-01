@@ -1,7 +1,4 @@
-# syntax = docker/dockerfile:experimental
-
-ARG PHP_VERSION=8.2
-ARG NODE_VERSION=18
+ARG PHP_VERSION=8.4
 FROM ubuntu:22.04 as base
 LABEL fly_launch_runtime="laravel"
 
@@ -39,14 +36,12 @@ RUN apt-get update \
     && echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu jammy main" > /etc/apt/sources.list.d/ondrej-ubuntu-php-focal.list \
     && apt-get update \
     && apt-get -y --no-install-recommends install $(cat /tmp/php-packages.txt) \
-    && ln -sf /usr/sbin/php-fpm${PHP_VERSION} /usr/sbin/php-fpm \
     && mkdir -p /var/www/html/public && echo "index" > /var/www/html/public/index.php \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
 # 2. Copy config files to proper locations
 COPY .fly/nginx/ /etc/nginx/
-COPY .fly/fpm/ /etc/php/${PHP_VERSION}/fpm/
 COPY .fly/supervisor/ /etc/supervisor/
 COPY .fly/entrypoint.sh /entrypoint
 COPY .fly/start-nginx.sh /usr/local/bin/start-nginx
@@ -64,18 +59,14 @@ RUN composer install --optimize-autoloader --no-dev \
     && echo "MAILTO=\"\"\n* * * * * www-data /usr/bin/php /var/www/html/artisan schedule:run" > /etc/cron.d/laravel \
     && sed -i='' '/->withMiddleware(function (Middleware \$middleware) {/a\
         \$middleware->trustProxies(at: "*");\
-    ' bootstrap/app.php; \
-    if [ -d .fly ]; then cp .fly/entrypoint.sh /entrypoint; chmod +x /entrypoint; fi;
+    ' bootstrap/app.php \
+    && chmod +x /entrypoint
 
-RUN rm -rf /etc/supervisor/conf.d/fpm.conf; \
-    mv /etc/supervisor/octane-franken.conf /etc/supervisor/conf.d/octane-franken.conf; \
+RUN  mv /etc/supervisor/octane-franken.conf /etc/supervisor/conf.d/octane-franken.conf; \
     rm -f frankenphp; \
     php artisan octane:install --no-interaction --server=frankenphp; \
     rm /etc/nginx/sites-enabled/default; \
     ln -sf /etc/nginx/sites-available/default-octane /etc/nginx/sites-enabled/default;
-
-
-
 
 # 5. Setup Entrypoint
 EXPOSE 8080
