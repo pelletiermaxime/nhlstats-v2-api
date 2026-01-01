@@ -4,40 +4,46 @@
 #
 
 app = "nhlstats-v2-api"
-primary_region = "yul"
+primary_region = "yyz"
 console_command = "php /var/www/html/artisan tinker"
 
 [build]
   [build.args]
-    PHP_VERSION = "8.3"
+    NODE_VERSION = '18'
+    PHP_VERSION = '8.4'
 
 [env]
-  APP_ENV = "production"
-  APP_DEBUG = "true"
-  LOG_CHANNEL = "stderr"
-  LOG_LEVEL = "info"
-  LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
-  SESSION_DRIVER = "cookie"
-  SESSION_SECURE_COOKIE = "true"
-#  MYSQL_ATTR_SSL_CA="/etc/ssl/certs/ca-certificates.crt"
-  DB_DATABASE = "nhlstats"
-#  DB_HOST = "gcp.connect.psdb.cloud"
-  DB_HOST = "nhlstats-v2-mysql.internal"
-  DB_USERNAME = "nhlstats"
+  APP_DEBUG = 'true'
+  APP_ENV = 'production'
+  DB_DATABASE = 'nhlstats'
+  DB_HOST = 'nhlstats-v2-mysql.internal'
+  DB_USERNAME = 'nhlstats'
+  LOG_CHANNEL = 'stderr'
+  LOG_LEVEL = 'info'
+  LOG_STDERR_FORMATTER = 'Monolog\Formatter\JsonFormatter'
+  SESSION_DRIVER = 'cookie'
+  SESSION_SECURE_COOKIE = 'true'
+
+[processes]
+  app = ''
+  cron = 'cron -f'
 
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = true
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 1
-  processes = ["app"]
-
-[processes]
-  app = ""
-  cron = "cron -f"
+  processes = ['app']
 
 [[vm]]
-  cpu_kind = "shared"
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 512
+  processes = ['app']
+
+[[vm]]
+  cpu_kind = 'shared'
   cpus = 1
   memory_mb = 256
+  processes = ['cron']
