@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use App\Models\Standings;
@@ -45,19 +47,19 @@ class FetchStandings extends Command
 
         foreach ($standings as $standing) {
             $formattedStandings[] = [
-                'Team'   => $standing['teamCommonName']['default'],
-                'GP'     => $standing['gamesPlayed'],
-                'W'      => $standing['wins'],
-                'L'      => $standing['losses'],
-                'ROW'    => $standing['regulationPlusOtWins'],
-                'OTL'    => $standing['otLosses'],
-                'PTS'    => $standing['points'],
-                'GF'     => $standing['goalFor'],
-                'GA'     => $standing['goalAgainst'],
-                'Diff'   => $standing['goalDifferential'],
-                'HOME'   => $standing['homeWins'] . '-' . $standing['homeLosses'] . '-' . $standing['homeOtLosses'],
-                'ROAD'   => $standing['roadWins'] . '-' . $standing['roadLosses'] . '-' . $standing['roadOtLosses'],
-                'L10'    => $standing['l10Wins'] . '-' . $standing['l10Losses'] . '-' . $standing['l10OtLosses'],
+                'Team' => $standing['teamCommonName']['default'],
+                'GP' => $standing['gamesPlayed'],
+                'W' => $standing['wins'],
+                'L' => $standing['losses'],
+                'ROW' => $standing['regulationPlusOtWins'],
+                'OTL' => $standing['otLosses'],
+                'PTS' => $standing['points'],
+                'GF' => $standing['goalFor'],
+                'GA' => $standing['goalAgainst'],
+                'Diff' => $standing['goalDifferential'],
+                'HOME' => $standing['homeWins'] . '-' . $standing['homeLosses'] . '-' . $standing['homeOtLosses'],
+                'ROAD' => $standing['roadWins'] . '-' . $standing['roadLosses'] . '-' . $standing['roadOtLosses'],
+                'L10' => $standing['l10Wins'] . '-' . $standing['l10Losses'] . '-' . $standing['l10OtLosses'],
                 'Streak' => $standing['streakCode'] . $standing['streakCount'],
             ];
         }
@@ -73,20 +75,20 @@ class FetchStandings extends Command
 
             Standings::create([
                 'team_id' => $teamID,
-                'year'    => current_year(),
-                'gp'      => $team['GP'],
-                'w'       => $team['W'],
-                'l'       => $team['L'],
-                'otl'     => $team['OTL'],
-                'pts'     => $team['PTS'],
-                'row'     => $team['ROW'],
-                'gf'      => $team['GF'],
-                'ga'      => $team['GA'],
-                'diff'    => $team['Diff'],
-                'home'    => $team['HOME'],
-                'away'    => $team['ROAD'],
-                'l10'     => $team['L10'],
-                'streak'  => $team['Streak'],
+                'year' => current_year(),
+                'gp' => $team['GP'],
+                'w' => $team['W'],
+                'l' => $team['L'],
+                'otl' => $team['OTL'],
+                'pts' => $team['PTS'],
+                'row' => $team['ROW'],
+                'gf' => $team['GF'],
+                'ga' => $team['GA'],
+                'diff' => $team['Diff'],
+                'home' => $team['HOME'],
+                'away' => $team['ROAD'],
+                'l10' => $team['L10'],
+                'streak' => $team['Streak'],
             ]);
         }
     }

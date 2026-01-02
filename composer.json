@@ -14,6 +14,7 @@
         "laravel/tinker": "^2.8"
     },
     "require-dev": {
+        "carthage-software/mago": "^1.0.3",
         "fakerphp/faker": "^1.9.1",
         "fly-apps/dockerfile-laravel": "^1.0",
         "laravel/pint": "^1.0",
@@ -63,6 +64,7 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
+            "carthage-software/mago": true,
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
         }

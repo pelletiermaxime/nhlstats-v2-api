@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Mcp\Prompts;
 
 use Laravel\Mcp\Request;
@@ -31,7 +33,7 @@ class GetStandingsPrompt extends Prompt
     public function arguments(): array
     {
         return [
-            new Argument('team', 'The team to get the standings for.')
+            new Argument('team', 'The team to get the standings for.'),
         ];
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Mcp\Servers;
 
 use App\Mcp\Prompts\GetStandingsPrompt;
@@ -15,7 +17,7 @@ class NhlstatsServer extends Server
     public string $instructions = 'Example instructions for LLMs connecting to this MCP server.';
 
     public array $tools = [
-         NhlStandingsTool::class,
+        NhlStandingsTool::class,
     ];
 
     public array $resources = [
@@ -23,6 +25,6 @@ class NhlstatsServer extends Server
     ];
 
     public array $prompts = [
-         GetStandingsPrompt::class,
+        GetStandingsPrompt::class,
     ];
 }

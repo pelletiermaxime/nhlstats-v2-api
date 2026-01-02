@@ -1,0 +1,343 @@
+variant = "loose"
+
+[[issues]]
+file = "app/Console/Commands/FetchStandings.php"
+code = "invalid-iterator"
+message = "The expression provided to `foreach` is not iterable. It resolved to type `mixed`, which is not iterable."
+count = 1
+
+[[issues]]
+file = "app/Console/Commands/FetchStandings.php"
+code = "mixed-argument"
+message = 'Invalid argument type for argument #1 of `App\Console\Commands\FetchStandings::savestandings`: expected `array<array-key, mixed>`, but found `mixed`.'
+count = 1
+
+[[issues]]
+file = "app/Console/Commands/FetchStandings.php"
+code = "mixed-array-access"
+message = "Unsafe array access on type `mixed`."
+count = 37
+
+[[issues]]
+file = "app/Console/Commands/FetchStandings.php"
+code = "mixed-assignment"
+message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
+count = 5
+
+[[issues]]
+file = "app/Console/Commands/FetchStandings.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 3
+
+[[issues]]
+file = "app/Console/Commands/FetchStandings.php"
+code = "mixed-operand"
+message = "Invalid left operand: type `mixed` cannot be reliably used in string concatenation."
+count = 4
+
+[[issues]]
+file = "app/Console/Commands/FetchStandings.php"
+code = "mixed-operand"
+message = "Invalid middle operand: type `mixed` cannot be reliably used in string concatenation."
+count = 3
+
+[[issues]]
+file = "app/Console/Commands/FetchStandings.php"
+code = "mixed-operand"
+message = "Invalid right operand: type `mixed` cannot be reliably used in string concatenation."
+count = 4
+
+[[issues]]
+file = "app/Console/Commands/FetchStandings.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `create` on class `App\Models\Standings`.'
+count = 1
+
+[[issues]]
+file = "app/Console/Commands/FetchStandings.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `whereName` on class `App\Models\Team`.'
+count = 1
+
+[[issues]]
+file = "app/Console/Commands/FetchStandings.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `where` on class `App\Models\Standings`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/StandingsController.php"
+code = "mixed-return-statement"
+message = 'Could not infer a precise return type for function `app\http\controllers\standingscontroller::index`. Saw type `mixed`.'
+count = 1
+
+[[issues]]
+file = "app/Mcp/Tools/NhlStandingsTool.php"
+code = "mixed-assignment"
+message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
+count = 1
+
+[[issues]]
+file = "app/Mcp/Tools/NhlStandingsTool.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 1
+
+[[issues]]
+file = "app/Models/Division.php"
+code = "missing-template-parameter"
+message = 'Too few template arguments for `Illuminate\Database\Eloquent\Factories\HasFactory`: expected 1, but found 0.'
+count = 1
+
+[[issues]]
+file = "app/Models/Standings.php"
+code = "missing-template-parameter"
+message = 'Too few template arguments for `Illuminate\Database\Eloquent\Factories\HasFactory`: expected 1, but found 0.'
+count = 1
+
+[[issues]]
+file = "app/Models/Team.php"
+code = "missing-template-parameter"
+message = 'Too few template arguments for `Illuminate\Database\Eloquent\Factories\HasFactory`: expected 1, but found 0.'
+count = 1
+
+[[issues]]
+file = "app/Providers/RouteServiceProvider.php"
+code = "mixed-property-access"
+message = "Attempting to access a property on a non-object type (`mixed`)."
+count = 1
+
+[[issues]]
+file = "app/Providers/RouteServiceProvider.php"
+code = "redundant-nullsafe-operator"
+message = "Redundant nullsafe operator (`?->`) used on an expression that is never `null`."
+count = 1
+
+[[issues]]
+file = "app/helpers.php"
+code = "ambiguous-object-method-access"
+message = "Cannot statically verify method call on a generic `object` type."
+count = 1
+
+[[issues]]
+file = "database/factories/UserFactory.php"
+code = "invalid-template-parameter"
+message = 'Template argument for `Illuminate\Database\Eloquent\Factories\Factory` is not compatible with its constraint.'
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "invalid-iterator"
+message = "The expression provided to `foreach` is not iterable. It resolved to type `mixed`, which is not iterable."
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "mixed-argument"
+message = "Invalid argument type for argument #1 of `json_decode`: expected `string`, but found `mixed`."
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "mixed-argument"
+message = "Invalid argument type for argument #1 of `strtoupper`: expected `string`, but found `mixed`."
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "mixed-array-access"
+message = "Unsafe array access on type `mixed`."
+count = 6
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "mixed-array-assignment"
+message = "Unsafe array assignment on type `mixed`."
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "mixed-assignment"
+message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
+count = 4
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 5
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "mixed-operand"
+message = "Invalid left operand: type `mixed` cannot be reliably used in string concatenation."
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "mixed-operand"
+message = "Invalid right operand: type `mixed` cannot be reliably used in string concatenation."
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "mixed-operand"
+message = "Left operand in binary operation has type `mixed`."
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `where` on class `App\Models\Division`.'
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `where` on class `App\Models\Team`.'
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "non-existent-method"
+message = "Method `table` does not exist on type `DB`."
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "non-existent-property"
+message = 'Property `$client` does not exist on class `Database\Seeders\DivisionsTableSeeder`.'
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "possibly-invalid-argument"
+message = '''Possible argument type mismatch for argument #1 of `Database\Seeders\DivisionsTableSeeder::insert`: expected `array<array-key, App\Models\Division>`, but possibly received `array{}|non-empty-list<list{string, string('EAST')|string('WEST')}>`.'''
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "possibly-undefined-variable"
+message = "Variable `$divisionInsert` might not have been defined on all execution paths leading to this point."
+count = 1
+
+[[issues]]
+file = "database/seeders/DivisionsTableSeeder.php"
+code = "undefined-variable"
+message = "Undefined variable: `$divisionInsert`."
+count = 2
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "invalid-iterator"
+message = "The expression provided to `foreach` is not iterable. It resolved to type `mixed`, which is not iterable."
+count = 3
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "mixed-argument"
+message = "Invalid argument type for argument #1 of `json_decode`: expected `string`, but found `mixed`."
+count = 1
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "mixed-argument"
+message = "Invalid argument type for argument #1 of `strtoupper`: expected `string`, but found `mixed`."
+count = 1
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "mixed-array-access"
+message = "Unsafe array access on type `mixed`."
+count = 14
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "mixed-array-assignment"
+message = "Unsafe array assignment on type `mixed`."
+count = 1
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "mixed-assignment"
+message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
+count = 8
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 7
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "mixed-operand"
+message = "Invalid left operand: type `mixed` cannot be reliably used in string concatenation."
+count = 1
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "mixed-operand"
+message = "Invalid right operand: type `mixed` cannot be reliably used in string concatenation."
+count = 1
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "mixed-operand"
+message = "Left operand in binary operation has type `mixed`."
+count = 1
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `where` on class `App\Models\Division`.'
+count = 1
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `where` on class `App\Models\Team`.'
+count = 1
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "non-existent-method"
+message = "Method `table` does not exist on type `DB`."
+count = 1
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "non-existent-property"
+message = 'Property `$client` does not exist on class `Database\Seeders\TeamTableSeeder`.'
+count = 1
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "possibly-undefined-variable"
+message = "Variable `$teamsInsert` might not have been defined on all execution paths leading to this point."
+count = 1
+
+[[issues]]
+file = "database/seeders/TeamTableSeeder.php"
+code = "undefined-variable"
+message = "Undefined variable: `$teamsInsert`."
+count = 2
+
+[[issues]]
+file = "tests/CreatesApplication.php"
+code = "mixed-assignment"
+message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
+count = 1
+
+[[issues]]
+file = "tests/CreatesApplication.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 2
+
+[[issues]]
+file = "tests/CreatesApplication.php"
+code = "mixed-return-statement"
+message = 'Could not infer a precise return type for function `tests\createsapplication::createapplication`. Saw type `mixed`.'
+count = 1

@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
+use App\Models\Division;
+use App\Models\Team;
 use DB;
 use GuzzleHttp\Client;
 use Illuminate\Database\Seeder;
-use App\Models\Division;
-use App\Models\Team;
 
 class TeamTableSeeder extends Seeder
 {
@@ -14,14 +16,17 @@ class TeamTableSeeder extends Seeder
     {
         $this->client = new Client();
 
-        $standingsURL = "https://statsapi.web.nhl.com/api/v1/standings";
-        $standingsURL .= "?expand=standings.team&season=%s";
+        $standingsURL = 'https://statsapi.web.nhl.com/api/v1/standings';
+        $standingsURL .= '?expand=standings.team&season=%s';
 
         $years = [config('nhlstats.currentYear')];
         foreach ($years as $year) {
-            $divisions = Division::where('year', $year)->select(['id', 'division'])->get()->keyBy('division');
+            $divisions = Division::where('year', $year)
+                ->select(['id', 'division'])
+                ->get()
+                ->keyBy('division');
             $teams = [];
-            $yearAndNext = $year . $year + 1;
+            $yearAndNext = $year . ($year + 1);
             $standingsYearURL = sprintf($standingsURL, $yearAndNext);
 
             $res = $this->client->get($standingsYearURL);
